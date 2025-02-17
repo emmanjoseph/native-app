@@ -19,19 +19,19 @@ const TabIcon =({icon, color, name, focused}:Props)=>{
         }).start();
     },[focused])
     return (
-        <View className={`rounded-[20px] flex flex-row items-center justify-center ${focused ? "bg-blue-500":"bg-white"} w-[62px] h-[62px] -mt-8 px-4`}>
+        <View className={`rounded-[20px] flex flex-row items-center justify-center ${focused ? "bg-blue-500":"bg-white"} w-[53px] h-[53px] -mt-8 px-4`}>
             <Image 
             source={icon}
             tintColor={focused ? "white" : "black"}
             resizeMode='contain'
-            className='w-7 h-7'
+            className='w-6 h-6'
             />
 
-             <Animated.View style={{ width: scaleAnim.interpolate({ inputRange: [0, 1], outputRange: [0, 60] }), overflow: 'hidden' }}>
+             {/* <Animated.View style={{ width: scaleAnim.interpolate({ inputRange: [0, 1], outputRange: [0, 60] }), overflow: 'hidden' }}>
                 {focused && (
                     <Text className='text-sm font-semibold text-white ml-2'>{name}</Text>
                 )}
-            </Animated.View>
+            </Animated.View> */}
 
         </View>
     )
@@ -50,9 +50,9 @@ const _layout = () => {
           borderRadius:20,
           paddingBottom: 0, // ios only
           overflow: "hidden",
-          marginHorizontal:40,
+          marginHorizontal:50,
           marginBottom: 20,
-          height: 70,
+          height: 65,
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -69,7 +69,7 @@ const _layout = () => {
         headerShown:false,
         tabBarIcon:({color,focused})=>(
             <TabIcon
-            icon={require("@/assets/icons/money.png")}
+            icon={require("@/assets/icons/house-blank.png")}
             name='home'
             color={color}
             focused={focused}
@@ -84,7 +84,7 @@ const _layout = () => {
         headerShown:false,
         tabBarIcon:({color,focused})=>(
             <TabIcon
-            icon={require("@/assets/icons/invoice.png")}
+            icon={require("@/assets/icons/receipt.png")}
             name='Invoices'
             color={color}
             focused={focused}
@@ -99,7 +99,7 @@ const _layout = () => {
         headerShown:false,
         tabBarIcon:({color,focused})=>(
             <TabIcon
-            icon={require("@/assets/icons/invoice.png")}
+            icon={require("@/assets/icons/curve-arrow.png")}
             name='Invoices'
             color={color}
             focused={focused}
@@ -114,7 +114,7 @@ const _layout = () => {
         headerShown:false,
         tabBarIcon:({color,focused})=>(
             <TabIcon
-            icon={require("@/assets/icons/invoice.png")}
+            icon={require("@/assets/icons/calendar-minus.png")}
             name='Invoices'
             color={color}
             focused={focused}
