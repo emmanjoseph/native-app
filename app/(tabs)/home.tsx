@@ -1,13 +1,14 @@
 import Chart from "@/componenets/chart";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 export default function Home() {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View className="w-full  bg-white/50 px-5 py-7">
+        <View className="w-full  bg-white/50 px-5 pt-5 pb-32">
 
           <View className="flex flex-row justify-between items-center"> 
             <View>
@@ -92,12 +93,12 @@ export default function Home() {
                   <View className="flex flex-row items-center gap-1">
                      
                     <Text className="font-UrbanistSemibold text-xl">
-                    Not Paid</Text>
+                    Paid</Text>
 
                     <Image source={require("@/assets/icons/flag.png")} 
                 resizeMode="contain"
                 className="w-6 h-6"
-                 tintColor="red"
+                 tintColor="green"
                 />
                   </View>
                   
@@ -127,13 +128,19 @@ export default function Home() {
                   
 
                 </View>
-              </View>
 
+                <View className="w-14 h-14 rounded-2xl border-2 border-secondary/30 flex items-center justify-center">
+                    <Image source={require('@/assets/icons/wifi.png')} 
+                    tintColor="green"
+                    className="w-5 h-5"
+                    resizeMode="contain"
+                    />
+                  </View>
+              </View>
               {/* chart */}
               <View className="my-5">
               <Chart/>
               </View>
-
           </View>
           </View>
 
@@ -151,7 +158,18 @@ export default function Home() {
                     resizeMode="contain"
                     />
                   </TouchableOpacity>
-                  <Text className="text-lg font-UrbanistSemibold text-secondary">Connected Devices</Text>
+                  <View>
+                  <Text className="text-lg font-UrbanistSemibold text-primary">Connected Devices</Text>
+                  
+                  <View className="flex flex-row items-center gap-1">
+                    {/* ping */}
+                    <View className="w-4 h-4 border border-green-500 rounded-full flex items-center justify-center">
+                      <View className="w-2 h-2 bg-green-400 rounded-full"/>
+                    </View>
+                  <Text className="text-sm font-UrbanistSemibold text-green-500 ">3 devices online</Text>
+                  </View>
+                  </View>
+                   
                 </View>
 
                 <TouchableOpacity className="w-14 h-14 shadow-lg shadow-gray-400 bg-white rounded-2xl flex items-center justify-center">
@@ -166,26 +184,41 @@ export default function Home() {
 
               {/* listing the connected devices */}
               <View className="mt-3 flex flex-col gap-y-2">
-                <View className="flex items-center gap-2 flex-row p-4 border-b border-b-secondary/30">
+                <LinearGradient
+                   colors={['#4c669f','#3b5998','#192f6a']}
+                   style={{
+                    borderRadius:20
+                   }}
+                   className="py-6 px-4"
+                 >
+                       <View className="flex flex-row gap-2 items-center">
                   <Image source={require("@/assets/icons/laptop.png")} className="w-10 h-10" resizeMode="contain"/>
                   <View>
-                    <Text className="font-UrbanistRegular">Personal Computer</Text>
+                    <Text className="font-UrbanistMedium text-white">Personal Computer</Text>
                   </View>
                 </View>
-                <View  className="flex items-center gap-2 flex-row p-4 border-b border-b-secondary/30">
+                </LinearGradient>
+
+                <LinearGradient
+                   colors={['#4c669f', '#3b5998', '#192f6a']}
+                   style={{
+                    borderRadius:20
+                   }}
+                   className="py-6 px-4"
+                 >
+                       <View className="flex flex-row gap-2 items-center">
                   <Image source={require("@/assets/icons/mobile-phone.png")} className="w-10 h-10" resizeMode="contain"/>
                   <View>
-                    <Text className="font-UrbanistRegular">Mobile Device</Text>
+                    <Text className="font-UrbanistMedium text-white">Mobile Device</Text>
                   </View>
                 </View>
-                <View className="flex items-center gap-2 flex-row px-4 py-2">
-                  <Image source={require("@/assets/icons/laptop.png")} className="w-10 h-10" resizeMode="contain"/>
-                  <View>
-                    <Text className="font-UrbanistRegular">Personal Computer</Text>
-                  </View>
-                </View>
+                </LinearGradient>
               </View>
           </View>
+           {/* last bit */}
+           <View className="bg-white/95 shadow-md shadow-gray-600/50 p-3 rounded-2xl mt-2">
+          <Text>Last bit</Text>
+           </View>
           </View>
         </View>
       </ScrollView>

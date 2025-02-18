@@ -16,6 +16,9 @@ const Chart = () => {
         
       ];
   return (
+    <View>
+
+    
     <LineChart
     areaChart
     stepChart
@@ -39,7 +42,9 @@ const Chart = () => {
     height={200}
     width={270}
   />
-    
+
+  <Text className='font-UrbanistMedium italic'>Weekly data consumption</Text>
+    </View>
   )
 }
 
