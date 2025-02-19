@@ -1,51 +1,78 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { LineChart } from "react-native-gifted-charts";
+import { View, Text, TouchableOpacity, Animated } from 'react-native'
+import React, { useRef, useState } from 'react'
+import { BarChart } from "react-native-gifted-charts";
+
+const weeklyData = [
+  { value: 15 },
+  { value: 12 },
+  { value: 26 },
+  { value: 40 },
+  { value: 33 },
+  { value: 40 },
+  { value: 23 },
+];
+
+const monthlyData = [
+  { value: 80 },
+  { value: 60 },
+  { value: 90 },
+  { value: 70 },
+  { value: 85 },
+  { value: 75 },
+  { value: 95 },
+];
+
 const Chart = () => {
-    const lineData = [
-        {value: 23},
-        {value: 20},
-        {value: 48},
-        {value: 40},
-        {value: 56},
-        {value: 40},
-        {value: 34},
-        {value: 24},
-        {value: 34},
-        {value: 44},
-        
-      ];
+  const [selected, setSelected] = useState('Weekly');
+  const options = ['Weekly', 'Monthly'];
+  const [barData, setBarData] = useState(weeklyData);
+  const animatedValue = useRef(new Animated.Value(0)).current;
+
+  const handlePress = (option: string, index: number) => {
+    setSelected(option);
+
+    // Animate transition
+    Animated.timing(animatedValue, {
+      toValue: index * 100, // Adjust based on width
+      duration: 250, 
+      useNativeDriver: false,
+    }).start();
+
+    // Change dataset based on selected option
+    setBarData(option === 'Weekly' ? weeklyData : monthlyData);
+  };
+
   return (
     <View>
+      <View className='my-5'>
+        <Text className='text-lg font-UrbanistSemibold'>{selected} usage</Text>
 
-    
-    <LineChart
-    areaChart
-    stepChart
-    hideDataPoints
-    isAnimated
-    animationDuration={1200}
-    startFillColor="#0BA5A4"
-    startOpacity={2}
-    endOpacity={0.3}
-    initialSpacing={0}
-    data={lineData}
-    spacing={40}
-    thickness={5}
-    hideRules
-    hideYAxisText
-    yAxisColor="#0BA5A4"
-    showVerticalLines={false}
-    verticalLinesColor="rgba(14,164,164,0.5)"
-    xAxisColor="#0BA5A4"
-    color="#0BA5A4"
-    height={200}
-    width={270}
-  />
+        <BarChart 
+          data={barData}
+          backgroundColor="#FFFFFF"
+          barWidth={10}
+          roundedBottom
+          roundedTop
+          yAxisThickness={0}
+          xAxisThickness={0}
+          noOfSections={3}
+        />
+      </View>
 
-  <Text className='font-UrbanistMedium italic'>Weekly data consumption</Text>
+      <View className='flex flex-row rounded-xl bg-white shadow shadow-secondary p-2'>
+        {options.map((option, index) => (
+          <TouchableOpacity
+            key={option}
+            onPress={() => handlePress(option, index)}
+            className={`flex-1 ${selected === option ? "bg-blue-500":"bg-primary"} items-center rounded-xl w-1/2`}
+            style={{ padding:10 }}
+          >
+            <Text className={`${selected === option ? "text-white":"text-black"} font-UrbanistSemibold`}>{option}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
     </View>
-  )
-}
+  );
+};
 
-export default Chart
+export default Chart;

@@ -8,24 +8,25 @@ import { router } from 'expo-router';
 
 const onBoarding = [
   {
-    id:1,
-    title:"Manage Your Internet, Effortlessly!",
-    description:"Stay on top of your usage, payments, and plans—all in one place.",
-    image:"manage.jpg"
+    id: 1,
+    title: "Manage Your Internet, Effortlessly!",
+    description: "Stay on top of your usage, payments, and plans—all in one place.",
+    image: require("@/assets/images/manage.jpg"),
   },
   {
-    id:1,
-    title:"Monitor Your Usage",
-    description:"Track your data, check your speed, and manage connected devices with ease.",
-    image:"monitor.jpg"
+    id: 2,
+    title: "Monitor Your Usage",
+    description: "Track your data, check your speed, and manage connected devices with ease.",
+    image: require("@/assets/images/monitor.jpg"),
   },
   {
-    id:1,
-    title:"Easy Payments & Support",
-    description:"Pay bills in seconds and get instant help when you need it.",
-    image:"payment.jpg"
+    id: 3,
+    title: "Easy Payments & Support",
+    description: "Pay bills in seconds and get instant help when you need it.",
+    image: require("@/assets/images/payment.jpg"),
   },
-]
+];
+
 const Welcome = () => {
   const swiperRef = useRef<Swiper>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -55,8 +56,8 @@ const Welcome = () => {
         >
          {onBoarding.map((item)=>(
           <View key={item.id} className='flex items-center space-y-2 px-4'>
-            <Image source={require(`@/assets/images/monitor.jpg`)}
-            className='w-[200px] h-[300px]'
+            <Image source={item.image}
+            className='w-[300px] h-[300px]'
             resizeMode='contain'
             />
             <Text className='text-3xl text-center font-UrbanistExtraBold mx-10 w-3/5 text-primary'>{item.title}</Text>

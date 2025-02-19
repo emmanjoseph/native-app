@@ -13,7 +13,7 @@ export default function Home() {
           <View className="flex flex-row justify-between items-center"> 
             <View>
               <Text className="text-sm font-UrbanistMedium text-blue-500">Good morning</Text>        
-              <Text className="text-xl text-gray-800 -mt-1 font-UrbanistSemibold">Samuel Macharia</Text>
+              <Text className="text-xl text-gray-800 -mt-1 font-UrbanistSemibold">Emmanuel Muia</Text>
               </View>
             <View className="flex flex-row items-center gap-4">
               <TouchableOpacity className="w-14 h-14 shadow-lg shadow-gray-400 bg-white rounded-xl flex items-center justify-center">
