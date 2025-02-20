@@ -115,7 +115,7 @@ export default function Home() {
           <View className="flex flex-row items-center justify-between">
                 <View className="flex items-center flex-row gap-2">
                   <TouchableOpacity className="w-14 h-14 rounded-2xl border-2 border-secondary/30 flex items-center justify-center">
-                    <Image source={require('@/assets/icons/curve-arrow.png')} 
+                    <Image source={require('@/assets/icons/wifi.png')} 
                     tintColor="#7F8183"
                     className="w-5 h-5"
                     resizeMode="contain"
@@ -146,7 +146,6 @@ export default function Home() {
 
 
           <View className="mt-2">
-          {/* <Text className="text-xl  text-neutral-800/90 py-3 font-UrbanistSemibold text-pretty">Devices</Text> */}
           <View className="bg-white/95 shadow-md shadow-gray-600/50 p-3 rounded-2xl">
           {/* top */}
           <View className="flex flex-row items-center justify-between">

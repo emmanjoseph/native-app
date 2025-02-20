@@ -56,6 +56,8 @@ const Chart = () => {
           yAxisThickness={0}
           xAxisThickness={0}
           noOfSections={3}
+          isAnimated
+          animationDuration={1000}
         />
       </View>
 
