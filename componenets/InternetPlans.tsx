@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Invoices = () => {
+const InternetPlans = () => {
   return (
     <View>
-      <Text>Invoices</Text>
+      <Text>InternetPlans</Text>
     </View>
   )
 }
 
-export default Invoices
+export default InternetPlans

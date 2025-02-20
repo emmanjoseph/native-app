@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Stats = () => {
+const Devices = () => {
   return (
     <View>
-      <Text>Stats</Text>
+      <Text>Devices</Text>
     </View>
   )
 }
 
-export default Stats
+export default Devices

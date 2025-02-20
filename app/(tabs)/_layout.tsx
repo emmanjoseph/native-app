@@ -22,16 +22,10 @@ const TabIcon =({icon, color, name, focused}:Props)=>{
         <View className={`rounded-[20px] flex flex-row items-center justify-center ${focused ? "bg-blue-500":"bg-white"} w-[53px] h-[53px] -mt-8 px-4`}>
             <Image 
             source={icon}
-            tintColor={focused ? "white" : "black"}
+            tintColor={focused ? "white" : "#7F8183"}
             resizeMode='contain'
             className='w-6 h-6'
             />
-
-             {/* <Animated.View style={{ width: scaleAnim.interpolate({ inputRange: [0, 1], outputRange: [0, 60] }), overflow: 'hidden' }}>
-                {focused && (
-                    <Text className='text-sm font-semibold text-white ml-2'>{name}</Text>
-                )}
-            </Animated.View> */}
 
         </View>
     )
@@ -79,13 +73,13 @@ const _layout = () => {
     />
 
     <Tabs.Screen 
-    name='invoices'
+    name='devices'
     options={{
         headerShown:false,
         tabBarIcon:({color,focused})=>(
             <TabIcon
-            icon={require("@/assets/icons/receipt.png")}
-            name='Invoices'
+            icon={require("@/assets/icons/devices.png")}
+            name='Devices'
             color={color}
             focused={focused}
             />
@@ -94,12 +88,12 @@ const _layout = () => {
     />
 
     <Tabs.Screen 
-    name='stats'
+    name='plans'
     options={{
         headerShown:false,
         tabBarIcon:({color,focused})=>(
             <TabIcon
-            icon={require("@/assets/icons/curve-arrow.png")}
+            icon={require("@/assets/icons/walet.png")}
             name='Invoices'
             color={color}
             focused={focused}
