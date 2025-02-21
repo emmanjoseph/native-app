@@ -20,7 +20,7 @@ const MessageBox = ({description,amount,date}:Props) => {
                          tintColor="#7F8183"
                         />
              </View>
-                          <Text className='text-green-500 text-lg font-UrbanistBold'>kes {amount}</Text>
+              <Text className='text-green-500 text-lg font-UrbanistBold'>kes {amount}</Text>
             </View>
 
             <Text className='text-sm font-UrbanistSemibold text-secondary'>{date}</Text>
